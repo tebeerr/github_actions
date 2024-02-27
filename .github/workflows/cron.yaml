@@ -1,0 +1,32 @@
+name: Cron Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checkout-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      #setup NodeJs
+
+      - name: Setup Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      #setup Yarn
+
+      - name: Install Yarn
+        run: npm install --global yarn
+
+      #Install libraries
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      #Run tests
+      - name: Run tests
+        run: yarn tests
