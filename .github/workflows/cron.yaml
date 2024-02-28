@@ -1,6 +1,8 @@
 name: Cron Example
 
 on:
+  # schedule:
+  #   - cron: "* * * * *"
   workflow_dispatch:
 
 jobs:
@@ -14,23 +16,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      #setup NodeJs
-
+      # Setup Nodejs
       - name: Setup Node.js 12
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
 
-      #setup Yarn
-
+      # Install Yarn
       - name: Install Yarn
         run: npm install --global yarn
 
-      #Install libraries
-
+      # Install libraries
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      #Run tests
+      # Run tests
       - name: Run tests
-        run: yarn tests
+        run: yarn test
