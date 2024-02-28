@@ -4,6 +4,3 @@ A sample basic Typescript web app project template that uses Snowpack. This proj
 
 
 
-
-
-
